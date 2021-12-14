@@ -33,7 +33,7 @@ const Managetask = () => {
 	const [desc, setDesc] = useState("");
 	const [sort, setSort] = useState("all");
 
-	const tasks = useSelector((state) => state);
+	const tasks = useSelector((state) => state.todolist);
 	const dispatch = useDispatch();
 
 	const handleTitle = (e) => {

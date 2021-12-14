@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import {
-	remove_task,
-	update_task,
-	completed_task,
-} from "../Redux/Actions/Actions";
+import { remove_task, update_task } from "../Redux/Actions/Actions";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -46,6 +42,7 @@ const Task = ({ task }) => {
 
 	const handleUpdate = () => {
 		const payload = {
+			id: task.id,
 			imp,
 			title,
 			desc,
@@ -70,7 +67,7 @@ const Task = ({ task }) => {
 							<button
 								className="manage_btn"
 								onClick={() => {
-									dispatch(completed_task(task));
+									dispatch(update_task({ id: task.id, status: false }));
 								}}
 							>
 								<FontAwesomeIcon
@@ -83,7 +80,7 @@ const Task = ({ task }) => {
 							<button
 								className="manage_btn"
 								onClick={() => {
-									dispatch(completed_task(task));
+									dispatch(update_task({ id: task.id, status: true }));
 								}}
 							>
 								<FontAwesomeIcon icon={faCheckCircle} color="green" size="2x" />

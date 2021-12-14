@@ -4,8 +4,8 @@ import Task from "./Task";
 import { Col, Container, Row } from "react-bootstrap";
 
 const ListTask = () => {
-	const tasks = useSelector((state) => state);
-
+	const tasks = useSelector((state) => state.todolist);
+	console.log(tasks);
 	return (
 		<div>
 			<Container>
